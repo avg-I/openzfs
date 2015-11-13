@@ -2337,7 +2337,8 @@ function labelvtoc
 		log_fail "unknown arch type"
 	fi
 
-	format -e -s -d $disk -f $label_file
+	format -e -s -d $disk -f $label_file || \
+		format -e -s -d $disk -f $label_file
 	typeset -i ret_val=$?
 	rm -f $label_file
 	#
