@@ -77,6 +77,12 @@ log_onexit cleanup
 create_snapshot $TESTPOOL/$TESTFS $TESTSNAP
 create_snapshot $TESTPOOL/$TESTVOL $TESTSNAP
 
+# The success of 'zfs create' command is logged to the pool history in
+# an asynchronous fashion.  So, wait for zfs_txg_timeout seconds for that write
+# to complete and settle down.  Otherwise, the available and used properties
+# of the root dataset will change potentially confusing the test.
+$SLEEP 5
+
 typeset -i i=0
 typeset -i j=0
 typeset cur_value=""
