@@ -202,7 +202,7 @@ function do_testing #<clear type> <vdevs>
 		    log_fail "'zpool clear' fails to clear error for pool $TESTPOOL1."
 	fi
 
-	log_must zpool destroy $TESTPOOL1
+	destroy_pool $TESTPOOL1
 }
 
 log_note "'zpool clear' clears leaf-device error."
