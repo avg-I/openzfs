@@ -64,7 +64,7 @@ for type in "mirror" "raidz" "raidz2"; do
 		# The oseek value below is to skip past the vdev label.
 		#
 		log_must dd if=/dev/urandom of=$VDIR/a bs=1024k oseek=4 \
-		    conv=notrunc count=50
+		    conv=notrunc count=120
 		log_must zpool scrub $TESTPOOL
 		log_must display_status $TESTPOOL
 
